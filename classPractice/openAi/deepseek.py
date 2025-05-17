@@ -2,13 +2,13 @@
 
 from openai import OpenAI
 
-client = OpenAI(api_key="sk-23e34ffb48ff454193022170fe8074da", base_url="https://api.deepseek.com")
+client = OpenAI(api_key="sk-d8fb35e5047f4a408f2afceb3e59bdfe", base_url="https://api.deepseek.com")
 
 response = client.chat.completions.create(
     model="deepseek-chat",
     messages=[
         {"role": "system", "content": "You are a helpful assistant"},
-        {"role": "user", "content": "Hello"},
+        {"role": "user", "content": "how are you"},
     ],
     stream=False
 )
