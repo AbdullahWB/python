@@ -1,0 +1,5 @@
+In this tutorial, we will scrape this page from yellopages.com using cloudscraper. Before we begin we need to make sure that Python is installed on our computer. If it is not installed then you can download it from here.
+First, create a folder for keeping Python scripts in it.
+Now, create a Python file by any name you like. I am naming the file as cloud.py.
+Scraping with Cloudscraper
+Let’s first see how a normal GET request to YellowPages.com using the requests library responds.
