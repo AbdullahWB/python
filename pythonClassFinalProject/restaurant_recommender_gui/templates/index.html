@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Recommender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Basic inline CSS for quick styling if no style.css */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #555;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            flex-grow: 1;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .recommendations {
+            margin-top: 20px;
+        }
+        .recommendations table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .recommendations th, .recommendations td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .recommendations th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Restaurant Recommendation System</h1>
+        <p>Enter a restaurant name to get recommendations:</p>
+
+        <form method="POST">
+            <input type="text" name="restaurant_name" placeholder="E.g., BTM Layout" required>
+            <button type="submit">Get Recommendations</button>
+        </form>
+
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+
+        {% if recommendations %}
+            <h2>Recommended Restaurants:</h2>
+            <div class="recommendations">
+                {{ recommendations | safe }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
